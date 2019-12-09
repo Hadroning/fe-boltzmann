@@ -13,6 +13,7 @@ export function createForm (that) {
   const register = that.props.form.getFieldDecorator;
 
   return function ({config, groupData, groupIdx, suffix}) {
+    const uiConfig = that.props.uiConfig || {};
     const { dataType, dataKey, list, defaultValue } = config;
 
     const checkRules = Util.getFormCheckRule(config, that);
@@ -156,7 +157,7 @@ export function createForm (that) {
                 config={config}
                 list={list}
                 dataSource={groupDataSource}
-                uiConfig={that.props.uiConfig.groupItemLayout || formItemLayout}
+                uiConfig={uiConfig.groupItemLayout || formItemLayout}
               />
             </div>
         )
